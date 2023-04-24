@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">AndroidWork</string>
+    <string name="logo_text">QQ</string>
+    <string name="input_username_hint">QQ号/QID/邮箱</string>
+    <string name="input_password_hint">输入QQ密码</string>
+    <string name="isAgree">已阅读并同意服务协议和QQ隐私保护指引</string>
+    <string name="login">登录</string>
+    <string name="male">男</string>
+    <string name="female">女</string>
+    <string name="username">hiifong</string>
+    <string name="h1">上网</string>
+    <string name="h2">运动</string>
+    <string name="h3">看书</string>
+    <string name="submit">提交</string>
 </resources>

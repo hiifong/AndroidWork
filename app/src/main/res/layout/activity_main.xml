@@ -4,15 +4,78 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F5F5F5"
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="20dp"
+        android:textSize="52sp"
+        android:text="@string/logo_text"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        />
+
+    <EditText
+        android:id="@+id/et_username"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="132dp"
+        android:background="@drawable/edit_view_radius"
+        android:gravity="center"
+        android:hint="@string/input_username_hint"
+        android:inputType="text"
+        android:textColorHint="#D0D0D0"
+        app:layout_constraintCircleRadius="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/logo" />
+
+    <EditText
+        android:id="@+id/et_password"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="220dp"
+        android:background="@drawable/edit_view_radius"
+        android:gravity="center"
+        android:hint="@string/input_password_hint"
+        android:inputType="textPassword"
+        android:textColorHint="#D0D0D0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/logo" />
+
+    <RadioButton
+        android:id="@+id/isAgree"
+        android:layout_width="265dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="296dp"
+        android:textColor="#8C8C8C"
+        android:text="@string/isAgree"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/logo" />
+
+    <Button
+        android:id="@+id/login"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="384dp"
+        android:text="@string/login"
+        android:textColor="#FFFFFF"
+        android:textSize="22sp"
+        android:backgroundTint="@color/login"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/logo" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
