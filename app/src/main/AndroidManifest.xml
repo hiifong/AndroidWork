@@ -12,6 +12,12 @@
         android:theme="@style/Theme.AndroidWork"
         tools:targetApi="31">
         <activity
+            android:name=".activity.Images"
+            android:exported="false" />
+        <activity
+            android:name=".activity.Color"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
