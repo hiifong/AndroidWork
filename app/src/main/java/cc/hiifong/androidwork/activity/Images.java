@@ -36,7 +36,7 @@ public class Images extends AppCompatActivity {
                 float y = sensorEvent.values[1];
                 float z = sensorEvent.values[2];
                 float f = 15;
-                int i = (int) (Math.random() * 100) % 3;
+                int i = (int) (Math.random() * 100) % imgId.length;
                 if(Math.abs(x) > f || Math.abs(y) > f || Math.abs(z) > f) {
                     vb.vibrate(1);
                     iv.setImageResource(imgId[i]);
