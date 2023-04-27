@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
@@ -40,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent;
                 intent = new Intent();
                 switch (checked){
-                    case "调节屏幕亮度":
+                    case "调节背景色":
                         intent.setClass(MainActivity.this, Color.class);
                         MainActivity.this.startActivity(intent);
                         break;
