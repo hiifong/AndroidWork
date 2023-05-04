@@ -2,15 +2,15 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     >
-    <item android:id="@+id/m1" android:title="@string/m1"/>
-    <item android:id="@+id/it_m" android:title="更多">
+    <item android:id="@+id/om1" android:title="@string/m1"/>
+    <item android:id="@+id/it_om" android:title="更多">
         <menu>
-            <item android:id="@+id/g_m1" android:title="@string/g_m1"/>
-            <item android:id="@+id/g_m2" android:title="@string/g_m2"/>
-            <item android:id="@+id/g_m3" android:title="@string/g_m3"/>
+            <item android:id="@+id/g_om1" android:title="@string/g_m1"/>
+            <item android:id="@+id/g_om2" android:title="@string/g_m2"/>
+            <item android:id="@+id/g_om3" android:title="@string/g_m3"/>
         </menu>
     </item>
-    <item android:id="@+id/m2" android:title="@string/m2"/>
-    <item android:id="@+id/m3" android:title="@string/m3"/>
-    <item android:id="@+id/m4" android:title="@string/m4"/>
+    <item android:id="@+id/om2" android:title="@string/m2"/>
+    <item android:id="@+id/om3" android:title="@string/m3"/>
+    <item android:id="@+id/om4" android:title="@string/m4"/>
 </menu>

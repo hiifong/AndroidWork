@@ -38,10 +38,13 @@ public class ContextMenuActivity extends AppCompatActivity {
                 return true;
             case R.id.m2:
                 tv.setText("你选择了软件工程");
+                return true;
             case R.id.m3:
-                tv.setText("你选择了软件工程");
+                tv.setText("你选择了网络工程");
+                return true;
             case R.id.m4:
-                tv.setText("你选择了软件工程");
+                tv.setText("你选择了网络安全技术");
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }

@@ -32,22 +32,29 @@ public class OptionMenuActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
+        System.out.println("id:"+ id);
         switch (id){
-            case R.id.m1:
+            case R.id.om1:
                 tv.setText("你选择了计算机系");
                 return true;
-            case R.id.m2:
+            case R.id.om2:
                 tv.setText("你选择了软件工程");
-            case R.id.m3:
-                tv.setText("你选择了软件工程");
-            case R.id.m4:
-                tv.setText("你选择了软件工程");
-            case R.id.g_m1:
+                return true;
+            case R.id.om3:
+                tv.setText("你选择了网络工程");
+                return true;
+            case R.id.om4:
+                tv.setText("你选择了网络安全技术");
+                return true;
+            case R.id.g_om1:
                 tv.setText("你选择了子菜单1");
-            case R.id.g_m2:
+                return true;
+            case R.id.g_om2:
                 tv.setText("你选择了子菜单2");
-            case R.id.g_m3:
+                return true;
+            case R.id.g_om3:
                 tv.setText("你选择了子菜单3");
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
