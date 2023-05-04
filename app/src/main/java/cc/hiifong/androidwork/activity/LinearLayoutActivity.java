@@ -12,23 +12,27 @@ import android.widget.TextView;
 import cc.hiifong.androidwork.R;
 
 public class LinearLayoutActivity extends AppCompatActivity {
-    private TextView tv_1,tv_2,tv_3;
+    private LinearLayout ly;
     private Button btn;
+    private boolean flag = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_linear_layout);
-        tv_1 = (TextView) findViewById(R.id.ly_tv_1);
-        tv_2 = (TextView) findViewById(R.id.ly_tv_2);
-        tv_3 = (TextView) findViewById(R.id.ly_tv_3);
+        ly = (LinearLayout) findViewById(R.id.ly_1);
         btn = (Button) findViewById(R.id.ly_btn);
-        boolean flag = false;
+
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (btn.isClickable()){
-                    System.out.println("btn 被点击了");
+                    flag = !flag;
+                }
+                if (flag){
+                    ly.setOrientation(LinearLayout.HORIZONTAL);
+                }else {
+                    ly.setOrientation(LinearLayout.VERTICAL);
                 }
             }
         });

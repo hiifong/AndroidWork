@@ -5,20 +5,46 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.TableLayoutActivity">
-    <TableLayout>
-        <TableRow>
-            <TextView
-                android:text="用户名"
-                />
-            <EditText
-                android:hint="请输入用户名"/>
-        </TableRow>
-        <TableRow>
-            <TextView
-                android:text="用户名"
-                />
-            <EditText
-                android:hint="请输入用户名"/>
-        </TableRow>
-    </TableLayout>
+    <TableRow
+        android:paddingStart="100dp"
+        android:layout_marginTop="100dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:text="用户名"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <EditText
+            android:id="@+id/tl_username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </TableRow>
+    <TableRow
+        android:paddingStart="100dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:text="密   码"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <EditText
+
+            android:id="@+id/tl_password"
+            android:inputType="textPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </TableRow>
+    <TableRow
+        android:paddingStart="100dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <Space/>
+        <Button
+            android:id="@+id/tl_btn"
+            android:text="确定"
+            android:textColor="@color/dark"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            />
+    </TableRow>
 </TableLayout>

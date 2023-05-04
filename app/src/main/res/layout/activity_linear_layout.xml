@@ -17,26 +17,29 @@
             android:id="@+id/ly_tv_1"
             android:text="@string/ly_t1"
             android:gravity="center"
+            android:layout_gravity="center"
             android:layout_weight="1"
             android:textColor="@android:color/holo_red_light"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"/>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
         <TextView
             android:id="@+id/ly_tv_2"
             android:text="@string/ly_t2"
             android:gravity="center"
+            android:layout_gravity="center"
             android:layout_weight="1"
             android:textColor="@android:color/holo_green_light"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"/>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
         <TextView
             android:id="@+id/ly_tv_3"
             android:text="@string/ly_t3"
             android:gravity="center"
             android:layout_weight="1"
+            android:layout_gravity="center"
             android:textColor="@android:color/holo_blue_light"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"/>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
     </LinearLayout>
 
     <LinearLayout
