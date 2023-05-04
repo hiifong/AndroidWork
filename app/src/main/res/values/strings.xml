@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">AndroidWork</string>
+    <string name="author">0330 蓝海锋</string>
+    <string name="select_function">功能选择:</string>
+    <string name="fun1">功能菜单及其子菜单</string>
+    <string name="fun2">上下文菜单</string>
+    <string name="fun3">动态菜单</string>
+    <string name="confirm">确认</string>
+    <string name="m1">计算机系</string>
+    <string name="m2">软件工程</string>
+    <string name="m3">网络工程</string>
+    <string name="m4">网络安全技术</string>
+    <string name="g_m1">子菜单1</string>
+    <string name="g_m2">子菜单2</string>
+    <string name="g_m3">子菜单3</string>
+    <string name="p">请长按按钮:</string>
+    <string name="press">长按我!!!</string>
 </resources>
