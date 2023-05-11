@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">AndroidWork</string>
+    <string name="select_function">功能选择</string>
+    <string name="author">0330 蓝海锋</string>
+    <string name="confirm">确认</string>
+    <string name="func1">日历选择组件与警示框</string>
+    <string name="func2">日期时间选择对话框与闹钟</string>
+    <string name="set_date">SET DATE</string>
+    <string name="set_time">SET TIME</string>
+    <string name="not_set">Not Set!</string>
 </resources>
