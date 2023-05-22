@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">AndroidWork</string>
+    <string name="select_function">功能选择</string>
+    <string name="author">0330 蓝海锋</string>
+    <string name="confirm">确认</string>
+    <string name="func1">Grid</string>
+    <string name="func2">Recycle</string>
+    <string name="func3">Web</string>
 </resources>
