@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">AndroidWork</string>
+    <string name="select_function">功能选择</string>
+    <string name="author">0330 蓝海锋</string>
+    <string name="confirm">确认</string>
+    <string name="which">请选择要跳转到的窗口</string>
+    <string name="prompt">请选择国家</string>
+    <string-array name="choose">
+        <item>代码生成Spinner选项</item>
+        <item>自定义Spinner选项</item>
+    </string-array>
 </resources>
