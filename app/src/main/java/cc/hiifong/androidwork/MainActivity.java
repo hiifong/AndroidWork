@@ -54,27 +54,92 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        View.OnClickListener listener = new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                switch (view.getId()){
+                    case R.id.btn_next: // 下一首
+                        btn_state.setText("暂停");
+                        state = STATE_NEXT;
+                        sendBroadcastToService(state);
+                        isPlaying = true;
+                        break;
+                    case R.id.btn: // 播放或暂停
+                        if(!isPlaying){
+                            btn_state.setText("暂停");
+                            state = STATE_PLAY;
+                            sendBroadcastToService(state);
+                            isPlaying = true;
+                        }else {
+                            btn_state.setText("播放");
+                            state = STATE_PAUSE;
+                            sendBroadcastToService(state);
+                            isPlaying = false;
+                        }
+                        break;
+                    case R.id.btn_pre: // 上一首
+                        btn_state.setText("暂停");
+                        state = STATE_PREVIOUS;
+                        sendBroadcastToService(state);
+                        isPlaying = true;
+                        break;
+                    default:
+                        break;
+                }
+            }
+        };
+
+        SeekBar.OnSeekBarChangeListener changeListener = new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                MusicService.isChanging = true;
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                // 当拖动停止后.控制mediaPlayer播放指定位置的音乐
+                if (state != STATE_NON){
+                    MusicService.mediaPlayer.seekTo(seekBar.getProgress());
+                }else {
+                    seekBar.setProgress(0);
+                }
+                MusicService.isChanging = false;
+            }
+        };
+
+
         skbMusic  = findViewById(R.id.sk);
         skbMusic.setOnSeekBarChangeListener(changeListener);
+
         btn_next = findViewById(R.id.btn_next);
         btn_state = findViewById(R.id.btn);
         btn_pre = findViewById(R.id.btn_pre);
+
         btn_next.setOnClickListener(listener);
         btn_state.setOnClickListener(listener);
         btn_pre.setOnClickListener(listener);
+
         song_name = findViewById(R.id.song_name);
         singer_name = findViewById(R.id.singer_name);
+
         // 注册接收器
         receiver = new MusicBoxReceiver();
         filter = new IntentFilter();
         filter.addAction(MUSICBOX_ACTION);
         registerReceiver(receiver, filter);
         intent = new Intent(this, MusicService.class); // 指定要开启的服务
+
         // 情况一: 判断后台服务是否已开启,如开启则恢复当前播放进度和状态
         ActivityManager manager = (ActivityManager) getSystemService(ACTIVITY_SERVICE);
         for (ActivityManager.RunningServiceInfo serviceInfo: manager.getRunningServices(Integer.MAX_VALUE)){
-            if ("cc.hiifong.administrator.androidwork.MusicService".equals(serviceInfo.service.getClassName()) &&
-            serviceInfo.started
+            if ("cc.hiifong.administrator.androidwork.MusicService"
+                    .equals(serviceInfo.service.getClassName()) && serviceInfo.started
             ){
                 skbMusic.setMax(MusicService.mediaPlayer.getDuration());
                 skbMusic.setProgress(MusicService.mediaPlayer.getCurrentPosition());
@@ -86,6 +151,7 @@ public class MainActivity extends AppCompatActivity {
                 btn_state.setText("暂停");
                 isPlaying = true;
             }
+            return;
         }
         // 情况二: 未开启过服务则开启服务
         song_name.setText(song_list[0]);
@@ -93,63 +159,6 @@ public class MainActivity extends AppCompatActivity {
         state = STATE_NON;
         startService(intent);
     }
-
-    View.OnClickListener listener = new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            switch (view.getId()){
-                case R.id.btn_next: // 下一首
-                    btn_state.setText("暂停");
-                    state = STATE_NEXT;
-                    sendBroadcastToService(state);
-                    isPlaying = true;
-                    break;
-                case R.id.btn: // 播放或暂停
-                    if(!isPlaying){
-                        btn_state.setText("暂停");
-                        state = STATE_PLAY;
-                        sendBroadcastToService(state);
-                        isPlaying = true;
-                    }else {
-                        btn_state.setText("播放");
-                        state = STATE_PAUSE;
-                        sendBroadcastToService(state);
-                        isPlaying = false;
-                    }
-                    break;
-                case R.id.btn_pre: // 上一首
-                    btn_state.setText("暂停");
-                    state = STATE_PREVIOUS;
-                    sendBroadcastToService(state);
-                    isPlaying = true;
-                    break;
-                default:
-                    break;
-            }
-        }
-    };
-    SeekBar.OnSeekBarChangeListener changeListener = new SeekBar.OnSeekBarChangeListener() {
-        @Override
-        public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-            // 当拖动停止后.控制mediaPlayer播放指定位置的音乐
-            if (state != STATE_NON){
-                MusicService.mediaPlayer.seekTo(seekBar.getProgress());
-            }else {
-                seekBar.setProgress(0);
-            }
-            MusicService.isChanging = false;
-        }
-
-        @Override
-        public void onStartTrackingTouch(SeekBar seekBar) {
-            MusicService.isChanging = true;
-        }
-
-        @Override
-        public void onStopTrackingTouch(SeekBar seekBar) {
-
-        }
-    };
 
     class MusicBoxReceiver extends BroadcastReceiver {
 

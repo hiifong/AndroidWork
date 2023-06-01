@@ -9,10 +9,10 @@ import android.content.res.AssetFileDescriptor;
 import android.content.res.AssetManager;
 import android.media.MediaPlayer;
 import android.os.IBinder;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 
-import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -45,7 +45,7 @@ public class MusicService extends Service {
     // 创建一个Asset管理器的对象
     AssetManager assetManager;
     // 存放音乐名的数组
-    String[] musics = new String[] {"shouxindeqiangwei.mp3", "thisislove.mp3", "yilushenghua.mp3"};
+    String[] musics = new String[] {"手心的蔷薇.mp3", "这,就是爱.mp3", "一路生花.mp3"};
     // 当前播放的音乐
     public static int current;
     // 当前播放状态
@@ -81,16 +81,20 @@ public class MusicService extends Service {
      * @return
      */
     protected void prepareAndPlay(int index) {
+        Log.d("index:", "prepareAndPlay: " + index);
         if (isTimerRunning) { // 如果Timer正在运行
-            timerTask.cancel(); // 取消定时器
+            mTimer.cancel(); // 取消定时器
             isTimerRunning = false;
         }
         if (index > musics.length - 1) {
-            current = index = 0;
+            index = 0;
+            current = index;
         }
         if (index < 0) {
-            current = index = musics.length -1;
+            index = musics.length -1;
+            current = index;
         }
+        Log.d("index:", "current: " + current);
         // 发送广播停止前台Activity更新界面
         Intent intent = new Intent();
         intent.putExtra("current", index);
@@ -109,7 +113,7 @@ public class MusicService extends Service {
             mediaPlayer.start();
             // getDuration() 方法要在prepare() 方法之后, 否则会出现异常
             MainActivity.skbMusic.setMax(mediaPlayer.getDuration()); // 设置SeekBar的长度
-        }catch (IOException e){
+        }catch (Exception e){
             e.printStackTrace();
         }
         // -------- 定时器记录播放进度------------
@@ -118,7 +122,7 @@ public class MusicService extends Service {
             @Override
             public void run() {
                 isTimerRunning = true;
-                if (isChanging == true) // 当用户正在拖动进度进条时不处理进度条的进度
+                if (isChanging) // 当用户正在拖动进度进条时不处理进度条的进度
                     return;
                 MainActivity.skbMusic.setProgress(mediaPlayer.getCurrentPosition());
             }
