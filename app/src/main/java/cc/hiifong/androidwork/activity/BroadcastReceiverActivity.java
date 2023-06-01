@@ -9,6 +9,7 @@ import android.content.IntentFilter;
 import android.os.Bundle;
 import android.telephony.SmsManager;
 import android.telephony.SmsMessage;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -26,10 +27,6 @@ public class BroadcastReceiverActivity extends AppCompatActivity {
     private TextView textView;
     private EditText et_num,et_msg;
     private Button bt_send;
-
-    static final String BROADCAST_ACTION = "android.provider.Telephony.SMS_RECEIVER";
-    SmsReceiver smsReceiver;
-    IntentFilter intentFilter;
 
     class SmsReceiver extends BroadcastReceiver {
         @Override
@@ -54,6 +51,9 @@ public class BroadcastReceiverActivity extends AppCompatActivity {
             }
         }
     }
+    static final String BROADCAST_ACTION = "android.provider.Telephony.SMS_RECEIVED";
+    SmsReceiver smsReceiver;
+    IntentFilter intentFilter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,13 +80,14 @@ public class BroadcastReceiverActivity extends AppCompatActivity {
                 }else {
                     SmsManager smsManager = SmsManager.getDefault();
                     if (sms_content.length() > 70){
-                        List<String> content = smsManager.divideMessage(sms_content);
-                        for (String sms: content){
+                        List<String> contents = smsManager.divideMessage(sms_content);
+                        for (String sms: contents){
                             smsManager.sendTextMessage(phone_num, null,
                                     sms, null, null);
                         }
                     }else {
-                        smsManager.sendTextMessage(phone_num, null,sms_content,null,null);
+                        smsManager.sendTextMessage(phone_num, null,
+                                sms_content,null,null);
                     }
                     Toast.makeText(BroadcastReceiverActivity.this, "短信已发送!",Toast.LENGTH_SHORT).show();
                 }
