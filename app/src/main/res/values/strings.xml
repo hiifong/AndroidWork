@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">AndroidWork</string>
+    <string name="song_name_label">歌名:</string>
+    <string name="song_name"> </string>
+    <string name="singer_name_label">歌手:</string>
+    <string name="singer_name"> </string>
+    <string name="previon">上一首</string>
+    <string name="state">播放</string>
+    <string name="next">下一首</string>
 </resources>
