@@ -69,12 +69,23 @@ public class NotificationActivity extends AppCompatActivity {
                 .setAutoCancel(true)
                 .build();
 
-        int second = Integer.parseInt(editText.getText().toString());
-
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                manager.notify(1, notification);//发通知
+                int second = Integer.parseInt(editText.getText().toString());
+                new CountDownTimer(second*1000, 1000){
+
+                    @Override
+                    public void onTick(long l) {
+                        textView.setText((l/1000) + "秒后通知");
+                    }
+
+                    @Override
+                    public void onFinish() {
+                        textView.setText("通知已发送");
+                        manager.notify(0, notification);
+                    }
+                }.start();
             }
         });
 
