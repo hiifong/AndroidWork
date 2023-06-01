@@ -36,7 +36,7 @@ public class MusicService extends Service {
     // 播放下一首的flag
     public static final int STATE_NEXT = 0x105;
 
-    TimerTask timerTask;
+    private TimerTask timerTask;
 
     public static boolean isChanging = false; // 互斥变量,防止定时器与SeekBar拖动时进度冲突
     // 创建一个媒体播放器的对象
