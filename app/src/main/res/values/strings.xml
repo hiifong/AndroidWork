@@ -5,6 +5,6 @@
     <string name="singer_name_label">歌手:</string>
     <string name="singer_name"> </string>
     <string name="previon">上一首</string>
-    <string name="state">播放</string>
+    <string name="state"> </string>
     <string name="next">下一首</string>
 </resources>

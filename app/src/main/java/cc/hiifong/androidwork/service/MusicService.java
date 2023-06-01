@@ -37,6 +37,7 @@ public class MusicService extends Service {
     public static final int STATE_NEXT = 0x105;
 
     private TimerTask timerTask;
+    private Timer mTimer;
 
     public static boolean isChanging = false; // 互斥变量,防止定时器与SeekBar拖动时进度冲突
     // 创建一个媒体播放器的对象
@@ -112,7 +113,7 @@ public class MusicService extends Service {
             e.printStackTrace();
         }
         // -------- 定时器记录播放进度------------
-        Timer timer = new Timer();
+        mTimer = new Timer();
         timerTask = new TimerTask() {
             @Override
             public void run() {
@@ -123,7 +124,7 @@ public class MusicService extends Service {
             }
         };
         // 每隔10毫秒检测一下播放进度
-        timer.schedule(timerTask, 0, 10);
+        mTimer.schedule(timerTask, 0, 10);
     }
 
     @Nullable
