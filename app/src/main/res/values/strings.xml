@@ -1,3 +1,22 @@
 <resources>
     <string name="app_name">AndroidWork</string>
+    <string name="select_function">功能选择</string>
+    <string name="author">0330 蓝海锋</string>
+    <string name="confirm">确认</string>
+    <string name="func1">新增联系人</string>
+    <string name="func2">查找联系人</string>
+    <string name="func3">操作联系人</string>
+    <string name="name">姓名</string>
+    <string name="add_name">张三</string>
+    <string name="id">ID</string>
+    <string name="add_id">zs</string>
+    <string name="phone">电话号码</string>
+    <string name="add_phone">0000000</string>
+    <string name="address">地址</string>
+    <string name="add_address">南珠大道9号</string>
+    <string name="btn_add">添加</string>
+    <string name="btn_clear">清除</string>
+    <string name="key_word">输入关键字</string>
+    <string name="query_name">张三</string>
+    <string name="query">查询</string>
 </resources>
